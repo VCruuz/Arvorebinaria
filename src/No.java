@@ -1,4 +1,4 @@
-class No {
+public class No {
     String valor;
     No esquerda;
     No direita;

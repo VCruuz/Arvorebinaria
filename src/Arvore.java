@@ -4,7 +4,7 @@ public class Arvore {
     public Arvore() {
         construirArvore();
     }
-
+    
     private void construirArvore() {
         No noA = new No("A");
         No noB = new No("B");
@@ -29,6 +29,14 @@ public class Arvore {
             System.out.print(no.valor + " ");
             preOrdem(no.esquerda);
             preOrdem(no.direita);
+        }
+    }
+
+    public void emOrdem(No no) {
+        if (no != null) {
+            emOrdem(no.esquerda);
+            System.out.print(no.valor + " ");
+            emOrdem(no.direita);
         }
     }
 
