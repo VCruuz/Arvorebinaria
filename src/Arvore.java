@@ -1,4 +1,4 @@
-class Arvore {
+public class Arvore {
     No raiz;
 
     public Arvore() {
@@ -31,12 +31,11 @@ class Arvore {
             preOrdem(no.direita);
         }
     }
-    
-public int contarNos(No no) {
-    if (no == null) {
-        return 0;
-    }
-    return 1 + contarNos(no.esquerda) + contarNos(no.direita);
-}
 
+    public int contarNos(No no) {
+        if (no == null) {
+            return 0;
+        }
+        return 1 + contarNos(no.esquerda) + contarNos(no.direita);
+    }
 }
