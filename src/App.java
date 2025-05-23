@@ -11,8 +11,9 @@ public class App {
         System.out.println("\nPós-ordem:");
         arvore.posOrdem(arvore.raiz);  
 
-        int total = arvore.contarNos(arvore.raiz);
-        System.out.println("\nTotal de nós: " + total); 
+        System.out.println("\nEm largura:");
+        arvore.emLargura();            
+
+        System.out.println("\nTotal de nós: " + arvore.contarNos(arvore.raiz)); 
     }
 }
-

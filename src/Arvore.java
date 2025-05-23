@@ -1,7 +1,14 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Arvore {
     No raiz;
 
     public Arvore() {
+        construirArvore();
+    }
+
+    private void construirArvore() {
         No a = new No("A");
         No b = new No("B");
         No c = new No("C");
@@ -41,6 +48,21 @@ public class Arvore {
             posOrdem(no.esquerda);
             posOrdem(no.direita);
             System.out.print(no.valor + " ");
+        }
+    }
+
+    public void emLargura() {
+        if (raiz == null) return;
+
+        Queue<No> fila = new LinkedList<>();
+        fila.add(raiz);
+
+        while (!fila.isEmpty()) {
+            No atual = fila.poll();
+            System.out.print(atual.valor + " ");
+
+            if (atual.esquerda != null) fila.add(atual.esquerda);
+            if (atual.direita != null) fila.add(atual.direita);
         }
     }
 
