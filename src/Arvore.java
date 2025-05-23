@@ -2,26 +2,22 @@ public class Arvore {
     No raiz;
 
     public Arvore() {
-        construirArvore();
-    }
-    
-    private void construirArvore() {
-        No noA = new No("A");
-        No noB = new No("B");
-        No noC = new No("C");
-        No noD = new No("D");
-        No noE = new No("E");
-        No noF = new No("F");
+        No a = new No("A");
+        No b = new No("B");
+        No c = new No("C");
+        No d = new No("D");
+        No e = new No("E");
+        No f = new No("F");
 
-        noA.esquerda = noB;
-        noA.direita = noC;
+        a.esquerda = b;
+        a.direita = c;
 
-        noB.esquerda = noD;
-        noB.direita = noE;
+        b.esquerda = d;
+        b.direita = e;
 
-        noC.direita = noF;
+        c.direita = f;
 
-        this.raiz = noA;
+        raiz = a;
     }
 
     public void preOrdem(No no) {
@@ -37,6 +33,14 @@ public class Arvore {
             emOrdem(no.esquerda);
             System.out.print(no.valor + " ");
             emOrdem(no.direita);
+        }
+    }
+
+    public void posOrdem(No no) {
+        if (no != null) {
+            posOrdem(no.esquerda);
+            posOrdem(no.direita);
+            System.out.print(no.valor + " ");
         }
     }
 
