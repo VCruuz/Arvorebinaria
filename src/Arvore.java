@@ -67,9 +67,28 @@ public class Arvore {
     }
 
     public int contarNos(No no) {
-        if (no == null) {
-            return 0;
-        }
+        if (no == null) return 0;
         return 1 + contarNos(no.esquerda) + contarNos(no.direita);
     }
+
+    public int altura(No no) {
+        if (no == null) return 0;
+        return 1 + Math.max(altura(no.esquerda), altura(no.direita));
+    }
+
+    public int contarFolhas(No no) {
+        if (no == null) return 0;
+        if (no.esquerda == null && no.direita == null) return 1;
+        return contarFolhas(no.esquerda) + contarFolhas(no.direita);
+    }
+
+    public void mostrarRecursos() {
+        System.out.println("=== Recursos da Árvore ===");
+        System.out.println("Total de nós: " + contarNos(raiz));
+        System.out.println("Altura da árvore: " + altura(raiz));
+        System.out.println("Número de folhas: " + contarFolhas(raiz));
+        System.out.print("Valores (Pré-ordem): ");
+        preOrdem(raiz);
+        System.out.println("\n===========================");
+    }    
 }

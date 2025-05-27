@@ -12,8 +12,9 @@ public class App {
         arvore.posOrdem(arvore.raiz);  
 
         System.out.println("\nEm largura:");
-        arvore.emLargura();            
+        arvore.emLargura();          
 
-        System.out.println("\nTotal de nós: " + arvore.contarNos(arvore.raiz)); 
+        System.out.println("\n\nRecursos da árvore:");
+        arvore.mostrarRecursos();      
     }
 }
