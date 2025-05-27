@@ -15,6 +15,16 @@ public class App {
         arvore.emLargura();          
 
         System.out.println("\n\nRecursos da árvore:");
-        arvore.mostrarRecursos();      
+        arvore.mostrarRecursos();
+        
+        System.out.println("Pré-ordem iterativa:");
+        arvore.preOrdem2(arvore.raiz);
+
+        System.out.println("\nEm-ordem iterativa:");
+        arvore.emOrdem2(arvore.raiz);
+
+        System.out.println("\nPós-ordem iterativa:");
+        arvore.posOrdem2(arvore.raiz);
+
     }
 }
