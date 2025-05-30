@@ -141,5 +141,76 @@ public void posOrdem2(No no) {
         System.out.print(pilha2.pop().valor + " ");
     }
 }
+public void emLargura2() {
+    if (raiz == null) return;
+
+    Queue<No> fila = new LinkedList<>();
+    fila.add(raiz);
+
+    while (!fila.isEmpty()) {
+        No atual = fila.poll();
+        System.out.print(atual.valor + " ");
+
+        if (atual.esquerda != null) fila.add(atual.esquerda);
+        if (atual.direita != null) fila.add(atual.direita);
+    }
+}
+public int contarNos2(No no) {
+    if (no == null) return 0;
+
+    int count = 0;
+    Stack<No> pilha = new Stack<>();
+    pilha.push(no);
+
+    while (!pilha.isEmpty()) {
+        No atual = pilha.pop();
+        count++;
+
+        if (atual.direita != null) pilha.push(atual.direita);
+        if (atual.esquerda != null) pilha.push(atual.esquerda);
+    }
+
+    return count;
+}
+public int contarFolhas2(No no) {
+    if (no == null) return 0;
+
+    int folhas = 0;
+    Stack<No> pilha = new Stack<>();
+    pilha.push(no);
+
+    while (!pilha.isEmpty()) {
+        No atual = pilha.pop();
+
+        if (atual.esquerda == null && atual.direita == null) {
+            folhas++;
+        }
+
+        if (atual.direita != null) pilha.push(atual.direita);
+        if (atual.esquerda != null) pilha.push(atual.esquerda);
+    }
+
+    return folhas;
+}
+public int altura2(No no) {
+    if (no == null) return 0;
+
+    Queue<No> fila = new LinkedList<>();
+    fila.add(no);
+    int altura = 0;
+
+    while (!fila.isEmpty()) {
+        int nivelSize = fila.size();
+        for (int i = 0; i < nivelSize; i++) {
+            No atual = fila.poll();
+            if (atual.esquerda != null) fila.add(atual.esquerda);
+            if (atual.direita != null) fila.add(atual.direita);
+        }
+        altura++;
+    }
+
+    return altura;
+}
 
 }
+

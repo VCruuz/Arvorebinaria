@@ -19,6 +19,7 @@ public class App {
         
         System.out.println("Pré-ordem iterativa:");
         arvore.preOrdem2(arvore.raiz);
+        
 
         System.out.println("\nEm-ordem iterativa:");
         arvore.emOrdem2(arvore.raiz);
@@ -26,5 +27,11 @@ public class App {
         System.out.println("\nPós-ordem iterativa:");
         arvore.posOrdem2(arvore.raiz);
 
+        System.out.println("\nLargura iterativa:");
+arvore.emLargura2();
+
+System.out.println("\nTotal de nós (iterativo): " + arvore.contarNos2(arvore.raiz));
+System.out.println("Total de folhas (iterativo): " + arvore.contarFolhas2(arvore.raiz));
+System.out.println("Altura da árvore (iterativo): " + arvore.altura2(arvore.raiz));
     }
 }
