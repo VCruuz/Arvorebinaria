@@ -211,6 +211,15 @@ public int altura2(No no) {
 
     return altura;
 }
+public int contarNosFilaRecursivo(Queue<No> fila) {
+    if (fila.isEmpty()) return 0;
 
+    No atual = fila.poll();
+
+    if (atual.esquerda != null) fila.add(atual.esquerda);
+    if (atual.direita != null) fila.add(atual.direita);
+
+    return 1 + contarNosFilaRecursivo(fila);
 }
 
+}

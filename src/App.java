@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class App {
     public static void main(String[] args) {
         Arvore arvore = new Arvore();
@@ -19,7 +22,7 @@ public class App {
         
         System.out.println("Pré-ordem iterativa:");
         arvore.preOrdem2(arvore.raiz);
-        
+
 
         System.out.println("\nEm-ordem iterativa:");
         arvore.emOrdem2(arvore.raiz);
@@ -33,5 +36,11 @@ arvore.emLargura2();
 System.out.println("\nTotal de nós (iterativo): " + arvore.contarNos2(arvore.raiz));
 System.out.println("Total de folhas (iterativo): " + arvore.contarFolhas2(arvore.raiz));
 System.out.println("Altura da árvore (iterativo): " + arvore.altura2(arvore.raiz));
+
+Queue<No> fila = new LinkedList<>();
+        fila.add(arvore.raiz);
+        int total = arvore.contarNosFilaRecursivo(fila);
+        System.out.println("Total de nós (recursivo com fila): " + total);
     }
+    
 }
