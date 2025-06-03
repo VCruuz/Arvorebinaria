@@ -222,4 +222,14 @@ public int contarNosFilaRecursivo(Queue<No> fila) {
     return 1 + contarNosFilaRecursivo(fila);
 }
 
+public void percorrerLargura() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'percorrerLargura'");
+}
+
+public String contarComFilaRec(No raiz2) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'contarComFilaRec'");
+}
+
 }

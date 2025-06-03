@@ -1,46 +1,72 @@
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class App {
     public static void main(String[] args) {
+
+        // Árvore binária comum
         Arvore arvore = new Arvore();
 
-        System.out.println("Pré-ordem:");
-        arvore.preOrdem(arvore.raiz);  
 
-        System.out.println("\nEm-ordem:");
-        arvore.emOrdem(arvore.raiz);   
+        arvore.raiz = new No("A");
+        arvore.raiz.esquerda = new No("B");
+        arvore.raiz.direita = new No("C");
+        arvore.raiz.esquerda.esquerda = new No("D");
+        arvore.raiz.esquerda.direita = new No("E");
+        arvore.raiz.direita.direita = new No("F");
 
-        System.out.println("\nPós-ordem:");
-        arvore.posOrdem(arvore.raiz);  
+        System.out.println("Contagem de nós (recursiva): " + arvore.contarNos(arvore.raiz));
+        System.out.println("Contagem de nós (iterativa): " + arvore.contarNos2(null));
 
-        System.out.println("\nEm largura:");
-        arvore.emLargura();          
+        System.out.println("Contagem de folhas (recursiva): " + arvore.contarFolhas(arvore.raiz));
+        System.out.println("Contagem de folhas (iterativa): " + arvore.contarFolhas2(null));
 
-        System.out.println("\n\nRecursos da árvore:");
+        System.out.print("Pré-ordem: ");
+        arvore.preOrdem(arvore.raiz);
+        System.out.println();
+
+        System.out.print("Pré-ordem iterativa: ");
+        arvore.preOrdem2(null);
+        System.out.println();
+
+        System.out.print("Em ordem: ");
+        arvore.emOrdem(arvore.raiz);
+        System.out.println();
+
+        System.out.print("Em ordem iterativa: ");
+        arvore.emOrdem2(null);
+        System.out.println();
+
+        System.out.print("Pós-ordem: ");
+        arvore.posOrdem(arvore.raiz);
+        System.out.println();
+
+        System.out.print("Pós-ordem iterativa: ");
+        arvore.posOrdem2(null);
+        System.out.println();
+
+        System.out.print("Largura (fila): ");
+        arvore.percorrerLargura();
+        System.out.println();
+
+        System.out.println("Contagem com fila (recursiva adaptada): " + arvore.contarComFilaRec(arvore.raiz));
+
+        System.out.println("Recursos:");
         arvore.mostrarRecursos();
-        
-        System.out.println("Pré-ordem iterativa:");
-        arvore.preOrdem2(arvore.raiz);
 
+        // Árvore AVL
+        ArvoreAVL avl = new ArvoreAVL();
+        avl.inserir("M");
+        avl.inserir("B");
+        avl.inserir("Q");
+        avl.inserir("A");
+        avl.inserir("C");
 
-        System.out.println("\nEm-ordem iterativa:");
-        arvore.emOrdem2(arvore.raiz);
+        System.out.print("AVL em ordem: ");
+        avl.emOrdem(avl.raiz);
+        System.out.println();
 
-        System.out.println("\nPós-ordem iterativa:");
-        arvore.posOrdem2(arvore.raiz);
+        avl.remover("B");
 
-        System.out.println("\nLargura iterativa:");
-arvore.emLargura2();
-
-System.out.println("\nTotal de nós (iterativo): " + arvore.contarNos2(arvore.raiz));
-System.out.println("Total de folhas (iterativo): " + arvore.contarFolhas2(arvore.raiz));
-System.out.println("Altura da árvore (iterativo): " + arvore.altura2(arvore.raiz));
-
-Queue<No> fila = new LinkedList<>();
-        fila.add(arvore.raiz);
-        int total = arvore.contarNosFilaRecursivo(fila);
-        System.out.println("Total de nós (recursivo com fila): " + total);
+        System.out.print("AVL após remover B: ");
+        avl.emOrdem(avl.raiz);
+        System.out.println();
     }
-    
 }
