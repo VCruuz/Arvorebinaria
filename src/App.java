@@ -68,5 +68,25 @@ public class App {
         System.out.print("AVL após remover B: ");
         avl.emOrdem(avl.raiz);
         System.out.println();
+
+
+        ArvoreRubroNegra arvore = new ArvoreRubroNegra();
+
+        arvore.inserir("M");
+        arvore.inserir("B");
+        arvore.inserir("Q");
+        arvore.inserir("A");
+        arvore.inserir("C");
+        arvore.inserir("Z");
+
+        System.out.print("Em ordem com cor: ");
+        arvore.emOrdem(arvore.getRaiz());
+        System.out.println();
+
+        arvore.removerSimples("A");
+
+        System.out.print("Após remover A: ");
+        arvore.emOrdem(arvore.getRaiz());
     }
 }
+    
